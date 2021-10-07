@@ -14,7 +14,8 @@ pipeline{
  
  //trigger build we use triggers cron or poll scm 
  triggers{
-  cron('* * * * *')
+  /*cron('* * * * *')*/
+  pollSCM('* * * * *')
  }
  
  
@@ -25,6 +26,14 @@ pipeline{
     echo "hello world! "
     echo "buid number : $BUILD_NUMBER is triggered by user : $name"
    }
-  }
+  
+  
+  stage("cron")
+  {
+   steps {
+    echo "build triggers"
+    git url :"https://github.com/punithannnn/maven-web-application.git"
+   }
  }
+  }
 }
