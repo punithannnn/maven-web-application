@@ -57,10 +57,12 @@ pipeline {
                                     {
                                         steps{
                                                   input{
-                                                  parameters{
-                                                    string(name: 'user')
-                                                  }
-                                                  steps{
+                                                           message "press ok"
+                                                           submitter "puni, lead"
+                                                    parameters{
+                                                             string(name: 'user')
+                                                            }
+                                                   steps{
                                                     echo "user: ${user} said ok"                   
                                                    }
                                                  }
