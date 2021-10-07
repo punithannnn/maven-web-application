@@ -25,16 +25,9 @@ pipeline{
    steps{
     echo "hello world! "
     echo "buid number : $BUILD_NUMBER is triggered by user : $name"
-   }
-  
-  
-  stage("cron")
-  {
-   steps {
     echo "build triggers"
     git url :"https://github.com/punithannnn/maven-web-application.git"
    }
- }
   }
-
+ }
 
