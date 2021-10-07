@@ -57,12 +57,12 @@ pipeline {
                                     {
                                         steps{
                                                   input("please approve the build")
-                                          {
-                                            script{
-                                              sh "echo this is puni"
-                                            }
-                                          }
-                                        }
+                                                {
+                                                      script{
+                                                              sh "echo this is puni"
+                                                            }
+                                                 }
+                                              }
                                     } 
                                   }
                               }
