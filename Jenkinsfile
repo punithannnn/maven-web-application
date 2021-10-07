@@ -14,7 +14,7 @@ pipeline{
  
  //trigger build we use triggers cron or poll scm 
  triggers{
-  cron(* * * * *)
+  cron('* * * * *')
  }
  
  
