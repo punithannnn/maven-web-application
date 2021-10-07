@@ -55,16 +55,14 @@ pipeline {
                                       }
                                    stage('userInput')
                                     {
-                                      input{
-                                               message "press ok to continue"
-                                               submitter "punitha,Lead"
-                                        parameters{
-                                                string(name:'username', description:"only punitha and lead has permission")
-                                               }
-                                           }
-                                       steps{
-                                         echo "user: ${username} said ok"
+                                        steps{
+                                                  input("please approve the build")
+                                          {
+                                            script{
+                                              sh "echo this is puni"
+                                            }
                                           }
+                                        }
                                     } 
                                   }
                               }
