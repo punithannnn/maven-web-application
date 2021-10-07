@@ -31,12 +31,9 @@ pipeline {
                                                    echo "buid number : $BUILD_NUMBER is triggered by user : $name"  
                                                    sh 'mvn --version'
                                                    sh "ls -l"
-                                                   git url :"https://github.com/punithannnn/maven-web-application.git"
-                                                    dir('pip')
-                                                       {
-                                                          sh "mvn clean install"
-                                                       }
-                                                    post{
+                                                   git url :"https://github.com/punithannnn/maven-web-application.git
+                                                   sh "mvn clean install"   
+                                                  post{
                                                       success{
                                                               archiveArtifacts artifacts:"pip/target/*.war"
                                                               }
