@@ -13,12 +13,12 @@ pipeline{
           post{
                     cleanup{
                                   echo "wipe out"
-                                }
+                            }
                 }
  // user defined variable 
       environment{
                             name="punitha"
-                        }
+                  }
  //trigger build we use triggers cron or poll scm 
  /*triggers{
   cron('* * * * *') 
@@ -28,12 +28,11 @@ stages{
     stage("message")
    {
     //parallel will trigger the build parallely 
-      parallel
-     {
-     
-         stage("job1")
-          {
-           steps{
+   parallel
+   {
+                          stage("job1")
+           {
+                  steps{
                     
                           echo "hello world! "
                           echo "buid number : $BUILD_NUMBER is triggered by user : $name"
@@ -42,13 +41,13 @@ stages{
             }
       
       stage("job2")
-          {
+             {
                    steps{
                           echo "hello world 2 "
                           sh "echo this is punitha" 
                           sh "ls -l"
                         }
-            }
+             }
       stage("tool_version")
             {
               steps{
@@ -67,7 +66,7 @@ stages{
                                                   }
                        }
                    } 
-         }
+        }
     }
    }
  }
