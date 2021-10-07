@@ -7,7 +7,7 @@ pipeline{
  }
  //to run specific version of tools we use tools block 
  tools{
-  maven 'Maven3.6.1'
+  maven 'maven-3.8.1'
  }
  //to wipeout workspace 
  post{
