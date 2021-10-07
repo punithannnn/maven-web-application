@@ -54,19 +54,17 @@ pipeline {
                                            }
                                       }
                                    stage('userInput')
-                                    {
-                                        steps{
+                                  {
                                                   input{
                                                            message "press ok"
                                                            submitter "puni, lead"
-                                                    parameters{
-                                                             string(name: 'user')
-                                                            }
+                                                            parameters{
+                                                                       string(name: 'user', description: "only puni")
+                                                                      }
+                                                  }
                                                    steps{
                                                     echo "user: ${user} said ok"                   
                                                    }
-                                                 }
-                                             }
                                     } 
                                   }
                               }
