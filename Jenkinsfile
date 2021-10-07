@@ -35,8 +35,8 @@ pipeline{
                                                                                           steps{
                 
                                                                                                           echo "hello world! "
-                                                                                                    echo "buid number : $BUILD_NUMBER
-                                                                                                     echo  " is triggered by user : $name"
+                                                                                                          echo "buid number : $BUILD_NUMBER
+                                                                                                     
                                                                                                      echo "build triggers"  
                                                                                                   }
                                                                                   }
