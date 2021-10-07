@@ -28,46 +28,46 @@ stages{
     stage("message")
    {
     //parallel will trigger the build parallely 
-   parallel
-   {
+                 parallel
+         {
                           stage("job1")
-           {
-                  steps{
+                 {
+                      steps{
                     
-                          echo "hello world! "
-                          echo "buid number : $BUILD_NUMBER is triggered by user : $name"
-                          echo "build triggers"  
-                        }
-            }
+                                  echo "hello world! "
+                                  echo "buid number : $BUILD_NUMBER is triggered by user : $name"
+                                  echo "build triggers"  
+                          }
+                  }
       
-      stage("job2")
-             {
-                   steps{
-                          echo "hello world 2 "
-                          sh "echo this is punitha" 
-                          sh "ls -l"
-                        }
-             }
-      stage("tool_version")
-            {
-              steps{
-                    sh 'mvn --version'
-                   }
-            }
-      stage('cleanws')
-      {
-         steps{
+                        stage("job2")
+                 {
+                    steps{
+                                     echo "hello world 2 "
+                                     sh "echo this is punitha" 
+                                     sh "ls -l"
+                         }
+                  }
+                   stage("tool_version")
+                {
+                      steps{
+                             sh 'mvn --version'
+                           }
+                }
+                 stage('cleanws')
+                {
+                    steps{
            //create a directory block 
-               dir('build_one')
-                       {
-                                          script{
-                                                      currentBuild.displayName="JenkinsJob"
-                                                      sh "echo build name changing > hello.txt"
-                                                  }
-                       }
-                   } 
-        }
-    }
-   }
+                             dir('build_one')
+                                         {
+                                                      script{
+                                                                 currentBuild.displayName="JenkinsJob"
+                                                                 sh "echo build name changing > hello.txt"
+                                                            }
+                                           }
+                          } 
+                }
+            }
+     }
  }
-}
+
