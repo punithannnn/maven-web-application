@@ -34,7 +34,7 @@ pipeline {
                                                    echo "buid number : $BUILD_NUMBER is triggered by user : $name"  
                                                    sh 'mvn --version'
                                                    sh "ls -l"
-                                                   git url :"https://github.com/punithannnn/maven-web-application.git
+                                                   git url :"https://github.com/punithannnn/maven-web-application.git"
                                                    sh "mvn clean install"   
                                                   
                                            }
@@ -53,6 +53,19 @@ pipeline {
                                                }
                                            }
                                       }
+                                   stage('userInput')
+                                    {
+                                      input{
+                                               message "press ok to continue"
+                                               submitter "punitha,Lead"
+                                        parameters{
+                                                string(name:'username', description:"only punitha and lead has permission")
+                                               }
+                                           }
+                                       steps{
+                                         echo "user: ${username} said ok"
+                                          }
+                                    } 
                                   }
                               }
                         }
