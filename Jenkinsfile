@@ -20,10 +20,10 @@ pipeline{
   name="punitha"
  }
  //trigger build we use triggers cron or poll scm 
- triggers{
+ /*triggers{
   cron('* * * * *') 
   /* pollSCM('* * * * *') */
- }
+ } */
 stages{
     stage("message")
    {
@@ -34,6 +34,9 @@ stages{
          stage("job1")
           {
                    steps{
+                    // to create a dir use dir block
+                    dir('build')
+                    
                           echo "hello world! "
                           echo "buid number : $BUILD_NUMBER is triggered by user : $name"
                           echo "build triggers"  
