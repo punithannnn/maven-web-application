@@ -46,7 +46,7 @@ pipeline {
                                           sh 'mvn --version'
                                           }
                                   }
-                                     stage('cleanws)
+                                     stage('cleanws')
                                {
                                  steps{
                                          dir('build_one')
