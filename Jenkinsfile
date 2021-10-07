@@ -1,24 +1,24 @@
 pipeline{
  agent any
  // for timestamp and  discard old builds we use options
- options{
-  timestamps()
-  buildDiscarder(logRotator(numToKeepStr: '10'))
- }
+          options{
+                        timestamps()
+                        buildDiscarder(logRotator(numToKeepStr: '10'))
+                     }
  //to run specific version of tools we use tools block 
- tools{
-  maven 'maven-3.8.1'
- }
+           tools{
+                       maven 'maven-3.8.1'
+                  }
  //to wipeout workspace 
- post{
-       cleanup{
-                echo "wipe out"
-              }
-     }
+          post{
+                    cleanup{
+                                  echo "wipe out"
+                                }
+                }
  // user defined variable 
- environment{
-  name="punitha"
- }
+      environment{
+                            name="punitha"
+                        }
  //trigger build we use triggers cron or poll scm 
  /*triggers{
   cron('* * * * *') 
@@ -57,20 +57,18 @@ stages{
             }
       stage('cleanws')
       {
-       steps{
+         steps{
            //create a directory block 
                dir('build_one')
-            {
-                   script{
-                            currentBuild.displayName="JenkinsJob"
-                            sh "echo build name changing > hello.txt"
-                         }
-            }
-         } 
-       }
+                       {
+                                          script{
+                                                      currentBuild.displayName="JenkinsJob"
+                                                      sh "echo build name changing > hello.txt"
+                                                  }
+                       }
+                   } 
+         }
     }
    }
- 
-  
  }
 }
