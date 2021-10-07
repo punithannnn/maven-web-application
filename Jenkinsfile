@@ -4,7 +4,7 @@ pipeline{
  // for timestamp and  discard old builds we use options 
  options{
   timestamp()
-  builddiscarder(logRotator(numToKeepStr: '2'))
+  buildDiscarder(logRotator(numToKeepStr: '2'))
  }
  
  // user defined variable 
