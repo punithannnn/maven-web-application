@@ -31,6 +31,8 @@ pipeline {
                                                    echo "buid number : $BUILD_NUMBER is triggered by user : $name"  
                                                    sh 'mvn --version'
                                                    sh "ls -l"
+                                                   git url :"https://github.com/punithannnn/maven-web-application.git"
+                                                   sh "mvn clean install"
                                            }
                                     }
                                   
@@ -42,6 +44,7 @@ pipeline {
                                                 script{
                                                                  currentBuild.displayName="JenkinsJob"
                                                                  sh "echo build name changing > hello.txt"
+                                                                 sh "cat hello.txt"
                                                        }
                                                }
                                            }
