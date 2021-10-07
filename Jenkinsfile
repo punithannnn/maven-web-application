@@ -18,7 +18,6 @@ pipeline{
   pollSCM('* * * * *')
  }
  
- 
  stages{
   stage("message")
   {
@@ -30,4 +29,6 @@ pipeline{
    }
   }
  }
-
+}
+}
+}
