@@ -32,13 +32,13 @@ pipeline {
                                                    sh 'mvn --version'
                                                    sh "ls -l"
                                                    git url :"https://github.com/punithannnn/maven-web-application.git"
-                                                    dir('mavenjob')
+                                                    dir('pip')
                                                        {
                                                           sh "mvn clean install"
                                                        }
                                                     post{
                                                       success{
-                                                              archiveArtifacts artifacts:"mavenjob/target/*.war"
+                                                              archiveArtifacts artifacts:"pip/target/*.war"
                                                               }
                                                     }
                                            }
