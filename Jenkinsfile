@@ -29,38 +29,27 @@ pipeline {
                                            steps{
                                                    echo "hello world! "
                                                    echo "buid number : $BUILD_NUMBER is triggered by user : $name"  
-                                               }
-                                     }
-      
-                                  stage("job2")
-                                  {
-                                           steps{
-                                                echo "hello world 2 "
-                                                sh "echo this is punitha" 
-                                                sh "ls -l"
-                                                }
+                                                   sh 'mvn --version'
+                                                   sh "ls -l"
+                                           }
                                     }
-                                 stage("tool_version")
-                                 {
-                                     steps{
-                                          sh 'mvn --version'
-                                          }
-                                  }
+                                  
                                      stage('cleanws')
-                               {
-                                 steps{
-                                         dir('build_one')
-                                         {
+                                    {
+                                      steps{
+                                               dir('build_one')
+                                              {
                                                 script{
                                                                  currentBuild.displayName="JenkinsJob"
                                                                  sh "echo build name changing > hello.txt"
-                                                }
-                                         }
-                                 }
-                               }
-                                          }
+                                                       }
+                                               }
+                                           }
                                       }
-             }
+                                  }
+                              }
+                        }
+                }
                             
                                      
    
