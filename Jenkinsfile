@@ -23,7 +23,7 @@ pipeline{
  /*triggers{
   cron('* * * * *') 
   /* pollSCM('* * * * *') */
- } */
+  } */
 stages{
     stage("message")
    {
@@ -59,19 +59,17 @@ stages{
       {
        steps{
            //create a directory block 
-          dir('build_one')
-          {
-            script{
-             currentBuild.displayName="JenkinsJob"
-             sh "echo build name changing > hello.txt"
+               dir('build_one')
+            {
+                   script{
+                            currentBuild.displayName="JenkinsJob"
+                            sh "echo build name changing > hello.txt"
+                         }
             }
-          }
-      }
-      
-      
-      
+         } 
        }
-  }
+    }
+   }
  
   
  }
