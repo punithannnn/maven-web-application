@@ -7,10 +7,10 @@ pipeline{
  }
  //to wipeout workspace 
  post{
-  cleanup{
-  echo "wipe out"
-  }
- }
+       cleanup{
+                echo "wipe out"
+              }
+     }
  // user defined variable 
  environment{
   name="punitha"
