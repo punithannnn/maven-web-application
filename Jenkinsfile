@@ -19,7 +19,7 @@ pipeline {
                             name="punitha"
                            }
                           triggers{
-                                   cron('* * * * *') 
+                                   cron('* */5 * * *') 
                                   /*pollSCM('* * * * *') */
                                 } 
                          stages{
