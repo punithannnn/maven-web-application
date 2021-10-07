@@ -33,9 +33,7 @@ stages{
      
          stage("job1")
           {
-                   steps{
-                    // to create a dir use dir block
-                    dir('build')
+           steps{
                     
                           echo "hello world! "
                           echo "buid number : $BUILD_NUMBER is triggered by user : $name"
@@ -57,6 +55,18 @@ stages{
                     sh 'mvn --version'
                    }
             }
+      stage('cleanws')
+      {
+       steps{
+           //create a directory block 
+          dir('build_one')
+          {
+            script{
+             currentBuild.displayName="JenkinsJob"
+             sh "echo build name changing > hello.txt"
+            }
+          }
+      }
       
       
       
