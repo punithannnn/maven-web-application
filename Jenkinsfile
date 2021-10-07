@@ -48,7 +48,7 @@ stages{
                           sh "ls -l"
                         }
             }
-      stage("tool version')
+      stage("tool_version')
             {
               steps{
                     sh 'mvn --version'
