@@ -56,13 +56,15 @@ pipeline {
                                    stage('userInput')
                                     {
                                         steps{
-                                                  input("please approve the build")
-                                                {
-                                                      script{
-                                                              sh "echo this is puni"
-                                                            }
+                                                  input{
+                                                  parameters{
+                                                    string(name: 'user')
+                                                  }
+                                                  steps{
+                                                    echo "user: ${user} said ok"                   
+                                                   }
                                                  }
-                                              }
+                                             }
                                     } 
                                   }
                               }
