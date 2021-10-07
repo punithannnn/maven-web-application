@@ -5,6 +5,10 @@ pipeline{
   timestamps()
   buildDiscarder(logRotator(numToKeepStr: '10'))
  }
+ //to run specific version of tools we use tools block 
+ tools{
+  maven 'Maven3.6.1'
+ }
  //to wipeout workspace 
  post{
        cleanup{
@@ -43,6 +47,12 @@ stages{
                           sh "echo this is punitha" 
                           sh "ls -l"
                         }
+            }
+      stage("tool version')
+            {
+              steps{
+                    sh 'mvn --version'
+                   }
             }
       
       
