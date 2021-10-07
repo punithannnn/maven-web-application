@@ -7,7 +7,6 @@ pipeline{
  }
  //to wipeout workspace 
  post{
-  echo "cleanup workspace"
   cleanup{
   echo "wipe out"
   }
@@ -18,7 +17,7 @@ pipeline{
  }
  //trigger build we use triggers cron or poll scm 
  triggers{
-  /*cron('* * * * *') */
+  cron('* * * * *') 
   /* pollSCM('* * * * *') */
  }
 stages{
