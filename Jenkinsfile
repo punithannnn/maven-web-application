@@ -1,9 +1,16 @@
 pipeline{
  agent any
- // for timestamp and  discard old builds we use options 
+ // for timestamp and  discard old builds we use options
  options{
   timestamps()
   buildDiscarder(logRotator(numToKeepStr: '10'))
+ }
+ //to wipeout workspace 
+ post{
+  echo "cleanup workspace"
+  cleanup{
+  echo "wipe out"
+  }
  }
  // user defined variable 
  environment{
@@ -35,6 +42,7 @@ stages{
                    steps{
                           echo "hello world 2 "
                           sh "echo this is punitha" 
+                          sh "ls -l"
                         }
             }
       
@@ -42,5 +50,7 @@ stages{
       
        }
   }
+ 
+  
  }
 }
