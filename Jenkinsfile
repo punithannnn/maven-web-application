@@ -12,15 +12,35 @@ pipeline{
  //trigger build we use triggers cron or poll scm 
  triggers{
   cron('* * * * *')
+  /* pollSCM('* * * * *') */
  }
-  stages{
-       stage("message")
+stages{
+    stage("message")
    {
-          steps{
-                  echo "hello world! "
-                  echo "buid number : $BUILD_NUMBER is triggered by user : $name"
-                  echo "build triggers"  
-               }
+    //parallel will trigger the build parallely 
+      parallel
+     {
+     
+         stage("job1")
+          {
+                   steps{
+                          echo "hello world! "
+                          echo "buid number : $BUILD_NUMBER is triggered by user : $name"
+                          echo "build triggers"  
+                        }
+            }
+      
+      stage("job2")
+          {
+                   steps{
+                          echo "hello world 2 "
+                          sh "echo this is punitha" 
+                        }
+            }
+      
+      
+      
+       }
   }
  }
 }
