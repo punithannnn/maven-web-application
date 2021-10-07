@@ -14,12 +14,13 @@ pipeline{
   cron('* * * * *')
  }
   stages{
-  stage("message")
-  {
-   steps{
-    echo "hello world! "
-    echo "buid number : $BUILD_NUMBER is triggered by user : $name"
-    echo "build triggers"  
-   }
+       stage("message")
+   {
+          steps{
+                  echo "hello world! "
+                  echo "buid number : $BUILD_NUMBER is triggered by user : $name"
+                  echo "build triggers"  
+               }
   }
  }
+}
