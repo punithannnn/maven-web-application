@@ -11,6 +11,9 @@ pipeline {
                        cleanup{
                                   echo "wipe out"
                                }
+                         success{
+                           archiveArtifacts artifacts:"pip/target/*.war"
+                                }
                             }
                          environment{
                             name="punitha"
@@ -33,11 +36,7 @@ pipeline {
                                                    sh "ls -l"
                                                    git url :"https://github.com/punithannnn/maven-web-application.git
                                                    sh "mvn clean install"   
-                                                  post{
-                                                      success{
-                                                              archiveArtifacts artifacts:"pip/target/*.war"
-                                                              }
-                                                    }
+                                                  
                                            }
                                     }
                                   
