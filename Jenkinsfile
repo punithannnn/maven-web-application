@@ -2,7 +2,7 @@ pipeline {
               agent any
                     options{
                                    timestamps()
-                                   buildDiscarder(logRotator(numToKeepStr: '1')
+                                   buildDiscarder(logRotator(numToKeepStr: '1'))
                             }
                       tools{
                        maven 'maven-3.8.1'
